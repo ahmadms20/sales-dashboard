@@ -1,5 +1,6 @@
 import Card from "./Card";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const VolumeServiceLevel = () => {
     const options = {
@@ -51,7 +52,7 @@ const VolumeServiceLevel = () => {
     return (
         <Card title="Volume vs Service Level">
             <div className="flex-col space-y-2">
-                <Chart options={options} series={series} type="bar" width="260" />
+                <ApexChart options={options} series={series} type="bar" width="260" />
                 <div className="flex justify-center space-x-4 px-4 md:px-8">
                     <div className="flex-col justify-end space-y-2">
                         <div className="flex items-center justify-center space-x-2">

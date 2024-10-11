@@ -2,9 +2,9 @@ import { Search } from "@mui/icons-material";
 
 const SearchInput = () => {
   return (
-    <div class="w-full flex items-center justify-center">
-        <div class="relative">
-            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+    <div className="w-full flex items-center justify-center">
+        <div className="relative">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                 <Search className="w-5 h-5 text-[#5D5FEF]" />
             </div>
             <input

@@ -1,5 +1,6 @@
 import Card from "./Card";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const SalesMappingBySector = () => {
 
@@ -27,7 +28,7 @@ const SalesMappingBySector = () => {
 
     return (
         <Card title="Sales Mapping by Sector">
-            <Chart
+            <ApexChart
                 options={options}
                 series={series}
                 type="pie"

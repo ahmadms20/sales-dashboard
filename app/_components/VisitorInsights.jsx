@@ -1,5 +1,6 @@
 import Card from "./Card";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const VisitorInsigts = () => {
 
@@ -8,7 +9,6 @@ const VisitorInsigts = () => {
         { name: "New Customers", color: "#EF4444" },
         { name: "Unique Customers", color: "#3CD856" },
     ];
-
     const options = {
         chart: {
             type: 'area',
@@ -46,7 +46,6 @@ const VisitorInsigts = () => {
             show: false,
         },
     };
-
     const series = [
         {
             name: 'New Customers',
@@ -65,7 +64,7 @@ const VisitorInsigts = () => {
     return (
         <Card title="Visitor Insights">
             <div className="flex-col space-y-2">
-                <Chart
+                <ApexChart
                     options={options}
                     series={series}
                     type="area"

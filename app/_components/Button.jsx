@@ -5,7 +5,7 @@ const Button = ({ children, buttonOnClick, buttonIcon, buttonTextColor = "#00000
         <button
             className="flex justify-center items-center text-sm px-3 py-1 rounded-md"
             style={{ backgroundColor: buttonBackgroundColor, border: `1px solid ${buttonBorderColor}`, color: buttonTextColor }}
-            buttonOnClick={buttonOnClick}
+            onClick={buttonOnClick}
         >
             {buttonIcon ? <Image src={buttonIcon} alt="icon" width={20} height={20} className="mr-1" /> : null}
             {children}

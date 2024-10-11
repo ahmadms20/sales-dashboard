@@ -1,6 +1,7 @@
 import Card from "./Card";
 import Image from "next/image";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const TargetReality = () => {
 
@@ -53,7 +54,7 @@ const TargetReality = () => {
     return (
         <Card title="Target Reality">
             <div className="flex-col space-y-4">
-                <Chart
+                <ApexChart
                     options={options}
                     series={series}
                     type="bar"

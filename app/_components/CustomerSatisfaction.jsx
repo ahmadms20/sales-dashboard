@@ -1,5 +1,6 @@
 import Card from "./Card";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const CustomerSatisfaction = () => {
 
@@ -41,7 +42,6 @@ const CustomerSatisfaction = () => {
             show: false,
         },
       };
-    
       const series = [
         {
             name: 'This Month',
@@ -56,7 +56,7 @@ const CustomerSatisfaction = () => {
     return (
         <Card title="Customer Satisfaction">
             <div className="flex-col space-y-8">
-                <Chart
+                <ApexChart
                     options={options}
                     series={series}
                     type="area"

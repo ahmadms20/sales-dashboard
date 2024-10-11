@@ -1,5 +1,6 @@
 import Card from "./Card";
-import Chart from 'react-apexcharts';
+import dynamic from 'next/dynamic';
+const ApexChart = dynamic(() => import('react-apexcharts'), { ssr: false });
 
 const TotalRevenue = () => {
 
@@ -47,7 +48,7 @@ const TotalRevenue = () => {
     return (
         <Card title="Total Revenue">
             <div className="flex-col space-y-2">
-                <Chart
+                <ApexChart
                     options={options}
                     series={series}
                     type="bar"
