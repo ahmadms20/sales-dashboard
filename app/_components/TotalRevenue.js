@@ -1,0 +1,30 @@
+import Card from "./Card";
+import Image from "next/image";
+
+const TotalRevenue = () => {
+
+    const data = [
+        { id: 1, name: "Online Sales", color: "#0095FF" },
+        { id: 2, name: "Offline Sales", color: "#00E096" },
+    ];
+
+    return (
+        <Card title="Total Revenue">
+            <div className="flex-col space-y-8">
+                <Image src="/diagram-2.png" alt="Diagram" width={500} height={500} />
+                <div className="grid grid-cols-2 gap-4 px-4 md:px-8">
+                    {data.map((item, index) => {
+                        return (
+                            <div className={`flex items-center space-x-2 ${item.id === 1 ? "justify-end" : "justify-start"}`} key={index}>
+                                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color }} aria-hidden="true" />
+                                <p className="text-[10px] text-[#425166]">{item.name}</p>
+                            </div>
+                        )
+                    })}
+                </div>
+            </div>
+        </Card>
+    )
+};
+
+export default TotalRevenue;
