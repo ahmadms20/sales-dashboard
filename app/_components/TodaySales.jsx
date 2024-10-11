@@ -12,10 +12,10 @@ const TodaySales = () => {
 
     return (
         <Card title="Today's Sales" desc="Total 120 Sales" buttonIcon="/export.svg" buttonText="Export">
-            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
+            <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4 mt-8">
                 {data.map((item, index) => {
                     return (
-                        <div className="flex-col space-y-1 rounded-md p-4" style={{ backgroundColor: item.background }} key={index}>
+                        <div className="flex-col space-y-2 rounded-md p-4" style={{ backgroundColor: item.background }} key={index}>
                             <Image src={item.icon} alt="icon" width={40} height={40} />
                             <p className="text-[24px] font-bold">{item.amount}</p>
                             <p className="text-[12px] font-semibold text-[#425166]">{item.name}</p>

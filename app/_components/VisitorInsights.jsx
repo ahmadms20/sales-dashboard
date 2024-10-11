@@ -1,5 +1,5 @@
 import Card from "./Card";
-import Image from "next/image";
+import Chart from 'react-apexcharts';
 
 const VisitorInsigts = () => {
 
@@ -8,11 +8,61 @@ const VisitorInsigts = () => {
         { name: "New Customers", color: "#EF4444" },
         { name: "Unique Customers", color: "#3CD856" },
     ];
+    const options = {
+        chart: {
+            type: 'area',
+            toolbar: {
+              show: false,
+            },
+        },
+        xaxis: {
+            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+        },
+        yxaxis: {
+            categories: ['100', '200', '300', '400'],
+        },
+        stroke: {
+            curve: 'smooth',
+            width: 2,
+        },
+        fill: {
+            colors: ['#EF4444', '#A700FF', '#3CD856'],
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        markers: {
+            size: 4,
+            hover: {
+              size: 6,
+            },
+        },
+        legend: {
+            show: false,
+        },
+    };
+    
+    const series = [
+        {
+            data: [30, 40, 35, 50, 49, 60, 70, 91, 125, 100, 120, 140],
+        },
+        {
+            data: [23, 12, 54, 61, 34, 56, 81, 19, 104, 50, 90, 100],
+        },
+        {
+            data: [20, 46, 25, 80, 59, 70, 40, 97, 120, 90, 140, 160],
+        }
+    ];
 
     return (
         <Card title="Visitor Insigts">
-            <div className="flex-col space-y-6">
-                <Image src="/diagram-1.png" alt="Diagram" width={500} height={500} />
+            <div className="flex-col space-y-2">
+                <Chart
+                    options={options}
+                    series={series}
+                    type="area"
+                    width="370"
+                />
                 <div className="grid grid-cols-3 px-4 md:px-8">
                     {data.map((item, index) => {
                         return (

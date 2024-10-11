@@ -1,11 +1,54 @@
 import Card from "./Card";
-import Image from "next/image";
+import Chart from 'react-apexcharts';
 
 const VolumeServiceLevel = () => {
+    const options = {
+        chart: {
+            type: 'bar',
+            stacked: true,
+            toolbar: {
+              show: false,
+            },
+        },
+        xaxis: {
+            labels: {
+                show: false,
+            },
+        },
+        yaxis: {
+            labels: {
+                show: false,
+            },
+        },
+        plotOptions: {
+            bar: {
+              horizontal: false,
+              borderRadius: 3,
+            },
+        },
+        fill: {
+            colors: ['#00E096', '#0095FF'],
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        legend: {
+            show: false,
+        },
+    };
+    const series = [
+        {
+            data: [54, 60, 40, 67, 57, 43, 21, 49, 72],
+        },
+        {
+            data: [48, 60, 60, 56, 40, 37, 33, 42, 48],
+        },
+    ];
+
     return (
         <Card title="Volume vs Service Level">
-            <div className="flex-col space-y-4">
-                <Image src="/diagram-6.png" alt="Diagram" width={500} height={500} />
+            <div className="flex-col space-y-2">
+                <Chart options={options} series={series} type="bar" width="260" />
                 <div className="flex justify-center space-x-4 px-4 md:px-8">
                     <div className="flex-col justify-end space-y-2">
                         <div className="flex items-center justify-center space-x-2">

@@ -1,32 +1,38 @@
 import Card from "./Card";
-import Image from "next/image";
+import Chart from 'react-apexcharts';
 
 const SalesMappingBySector = () => {
 
-    const data = [
-        { id: 1, name: "Amil - 4%", color: "#1F3863" },
-        { id: 2, name: "Ekonomi - 9%", color: "#BCD6ED" },
-        { id: 3, name: "Pendidikan - 14%", color: "#00AFEF" },
-        { id: 4, name: "Amil - 16%", color: "#000000" },
-        { id: 5, name: "Ekonomi - 5%", color: "#979797" },
-        { id: 6, name: "Pendidikan - 52%", color: "#4471C4" },
-    ];
+    const options = {
+        labels: ['Amil', 'Ekonomi', 'Pendidikan', 'Amil', 'Ekonomi', 'Pendidikan'],
+        responsive: [{
+            breakpoint: 480,
+            options: {
+                chart: {
+                    width: 300,
+                },
+                legend: {
+                    show: false,
+                }
+            }
+        }],
+        fill: {
+            colors: ['#1F3863', '#BCD6ED', '#00AFEF', '#000000', '#979797', '#4471C4'],
+        },
+        dataLabels: {
+            enabled: false,
+        },
+    };
+    const series = [4, 9, 14, 16, 5, 52];
 
     return (
         <Card title="Sales Mapping by Sector">
-            <div className="flex space-x-2">
-                <Image src="/diagram-5.png" alt="Diagram" width={160} height={160} />
-                <div className="flex-col space-y-2">
-                    {data.map((item, index) => {
-                        return (
-                            <div className="flex items-center space-x-1" key={index}>
-                                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.color, border: item.id === 6 ? "1px solid #000000" : "unset" }} aria-hidden="true" />
-                                <p className="text-[8px] text-[#425166]">{item.name}</p>
-                            </div>
-                        )
-                    })}
-                </div>
-            </div>
+            <Chart
+                options={options}
+                series={series}
+                type="pie"
+                width="270"
+            />
         </Card>
     )
 };
