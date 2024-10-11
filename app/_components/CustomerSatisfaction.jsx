@@ -44,11 +44,11 @@ const CustomerSatisfaction = () => {
     
       const series = [
         {
-            name: 'Product A',
+            name: 'This Month',
             data: [30, 40, 35, 50, 49, 60, 70, 91, 125],
         },
         {
-            name: 'Product B',
+            name: 'Last Month',
             data: [23, 12, 54, 61, 34, 56, 81, 19, 104],
         }
     ];

@@ -35,9 +35,11 @@ const TotalRevenue = () => {
     };
     const series = [
         {
+            name: 'Online Sales',
             data: [30, 40, 35, 50, 49, 60, 70],
         },
         {
+            name: 'Offline Sales',
             data: [23, 12, 54, 61, 34, 56, 81],
         }
     ];

@@ -38,9 +38,12 @@ const VolumeServiceLevel = () => {
     };
     const series = [
         {
+
+            name: 'Services',
             data: [54, 60, 40, 67, 57, 43, 21, 49, 72],
         },
         {
+            name: 'Volume',
             data: [48, 60, 60, 56, 40, 37, 33, 42, 48],
         },
     ];

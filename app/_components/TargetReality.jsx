@@ -41,9 +41,11 @@ const TargetReality = () => {
       };
       const series = [
         {
+            name: 'Reality Sales',
             data: [30, 40, 35, 50, 49, 60, 70],
         },
         {
+            name: 'Target Sales',
             data: [23, 12, 54, 61, 34, 56, 81],
         }
     ];
