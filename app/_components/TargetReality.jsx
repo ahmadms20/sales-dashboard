@@ -38,7 +38,25 @@ const TargetReality = () => {
         },
         legend: {
             show: false,
-        }
+        },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
       };
       const series = [
         {
@@ -58,7 +76,7 @@ const TargetReality = () => {
                     options={options}
                     series={series}
                     type="bar"
-                    width="270"
+                    width="100%"
                 />
                 <div className="flex-col space-y-4 gap-4">
                     {data.map((item, index) => {

@@ -36,6 +36,24 @@ const VolumeServiceLevel = () => {
         legend: {
             show: false,
         },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
     };
     const series = [
         {
@@ -52,7 +70,7 @@ const VolumeServiceLevel = () => {
     return (
         <Card title="Volume vs Service Level">
             <div className="flex-col space-y-2">
-                <ApexChart options={options} series={series} type="bar" width="260" />
+                <ApexChart options={options} series={series} type="bar" width="100%" />
                 <div className="flex justify-center space-x-4 px-4 md:px-8">
                     <div className="flex-col justify-end space-y-2">
                         <div className="flex items-center justify-center space-x-2">

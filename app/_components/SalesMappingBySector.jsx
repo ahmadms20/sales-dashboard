@@ -23,6 +23,24 @@ const SalesMappingBySector = () => {
         dataLabels: {
             enabled: false,
         },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
     };
     const series = [4, 9, 14, 16, 5, 52];
 
@@ -32,7 +50,7 @@ const SalesMappingBySector = () => {
                 options={options}
                 series={series}
                 type="pie"
-                width="270"
+                width="100%"
             />
         </Card>
     )

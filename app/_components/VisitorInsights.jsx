@@ -11,7 +11,7 @@ const VisitorInsigts = () => {
     ];
     const options = {
         chart: {
-            type: 'area',
+            type: 'line',
             toolbar: {
               show: false,
             },
@@ -36,15 +36,27 @@ const VisitorInsigts = () => {
         dataLabels: {
             enabled: false,
         },
-        markers: {
-            size: 4,
-            hover: {
-              size: 6,
-            },
-        },
         legend: {
             show: false,
         },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
     };
     const series = [
         {
@@ -67,8 +79,8 @@ const VisitorInsigts = () => {
                 <ApexChart
                     options={options}
                     series={series}
-                    type="area"
-                    width="370"
+                    type="line"
+                    width="100%"
                 />
                 <div className="grid grid-cols-3 px-4 md:px-8">
                     {data.map((item, index) => (

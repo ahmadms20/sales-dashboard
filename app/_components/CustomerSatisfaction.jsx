@@ -24,7 +24,7 @@ const CustomerSatisfaction = () => {
         markers: {
             size: 3,
             colors: ['#00E096', '#0095FF'],
-            strokeWidth: 2,
+            strokeWidth: 0,
             hover: {
                 size: 7,
             },
@@ -34,6 +34,7 @@ const CustomerSatisfaction = () => {
         },
         stroke: {
             curve: 'smooth',
+            width: 2,
         },
         fill: {
             colors: ['#00E096', '#0095FF'],
@@ -41,6 +42,24 @@ const CustomerSatisfaction = () => {
         legend: {
             show: false,
         },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
       };
       const series = [
         {
@@ -60,7 +79,7 @@ const CustomerSatisfaction = () => {
                     options={options}
                     series={series}
                     type="area"
-                    width="270"
+                    width="100%"
                 />
                 <div className="flex justify-center space-x-4 px-4 md:px-8">
                     <div className="flex-col justify-end space-y-2">

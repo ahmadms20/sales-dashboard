@@ -18,6 +18,16 @@ const TotalRevenue = () => {
         xaxis: {
             categories: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         },
+        yaxis: {
+            min: 0,
+            max: 25,
+            tickAmount: 5,
+            labels: {
+                formatter: function (value) {
+                    return value.toFixed(0);
+                },
+            },
+        },
         plotOptions: {
             bar: {
                 borderRadius: 4,
@@ -32,16 +42,34 @@ const TotalRevenue = () => {
         },
         legend: {
             show: false,
-        }
+        },
+        responsive: [
+            {
+                breakpoint: 768,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+            {
+                breakpoint: 480,
+                options: {
+                    chart: {
+                        width: '100%',
+                    },
+                },
+            },
+        ],
     };
     const series = [
         {
             name: 'Online Sales',
-            data: [30, 40, 35, 50, 49, 60, 70],
+            data: [5, 10, 15, 20, 10, 15, 20],
         },
         {
             name: 'Offline Sales',
-            data: [23, 12, 54, 61, 34, 56, 81],
+            data: [10, 5, 20, 15, 5, 10, 25],
         }
     ];
 
@@ -52,7 +80,7 @@ const TotalRevenue = () => {
                     options={options}
                     series={series}
                     type="bar"
-                    width="400"
+                    width="100%"
                 />
                 <div className="grid grid-cols-2 gap-4 px-4 md:px-8">
                     {data.map((item, index) => {
